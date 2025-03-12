@@ -170,9 +170,8 @@ def compute_aligned_df_f1(gt_df, aligned_rows, unaligned_rows, present_columns):
         new_fp = 0
         new_fn = 0
         for gt, pred in list(zip(list(gt_df[column].values), list(aligned_rows[column].values))):
-            if overlap(str(gt), str(pred)):
+            if overlap(gt, pred):
                 new_tp += 1
-                breakpoint()
         tp_text += new_tp
 
         num_true_gold = len(gt_df['policy_id'].unique())
